@@ -53,6 +53,8 @@ The main functionality of Yelp is to search for a business and give reviews:
 | phone_number | string (integer?) | optional |
 | website_address | string | optional |
 | price_rating | integer | not null, between 1-5 |
+| latitude | string | bonus functionality |
+| longitude | string | bonus functionality |
 
 
 ### Categories

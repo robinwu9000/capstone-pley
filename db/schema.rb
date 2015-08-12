@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811225549) do
+ActiveRecord::Schema.define(version: 20150812220334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20150811225549) do
     t.integer  "price_range",     null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "longitude"
+    t.string   "latitude"
   end
 
   add_index "businesses", ["address", "city", "state", "zip_code"], name: "index_businesses_on_address_and_city_and_state_and_zip_code", unique: true, using: :btree
@@ -53,6 +55,7 @@ ActiveRecord::Schema.define(version: 20150811225549) do
     t.string   "path",        null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "comment"
   end
 
   add_index "photos", ["business_id"], name: "index_photos_on_business_id", using: :btree
@@ -78,6 +81,7 @@ ActiveRecord::Schema.define(version: 20150811225549) do
     t.string   "session_token",   null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "profile_pic"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
