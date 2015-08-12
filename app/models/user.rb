@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   attr_reader :password
   after_initialize :ensure_session_token
 
+  has_many :reviews
+  has_many :photos
+
   def self.find_by_credentials(user_params)
     user = User.find_by_email(user_params[:email])
     user.try(:is_password?, user_params[:password]) ? user : nil

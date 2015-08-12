@@ -33,7 +33,7 @@
    border-color: #fff056;
  }
 
- .navbar-default .navbar-brand {
+ .navbar-default .navbar-brand, .navbar-default .navbar-brand:focus {
    color: #e2e2e2;
    border-right: 2px solid white;
  }
