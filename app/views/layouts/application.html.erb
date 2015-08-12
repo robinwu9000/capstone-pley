@@ -11,10 +11,14 @@
   <%= render template: "layouts/_navigation_bar" %>
 
   <% if flash[:errors] %>
-    <%= flash[:errors].join("<br>").html_safe %>
+    <div class="alert alert-danger" role="alert">
+      <%= flash[:errors].join("<br>").html_safe %>
+    </div>
   <% end %>
 
-<%= yield %>
+  <div id="site-content">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

@@ -15,3 +15,42 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ body {
+   background-color: #f6f6f6;
+ }
+
+ #site-content {
+   margin-top: 50px;
+ }
+
+ .navbar {
+   margin-bottom: 0px;
+ }
+
+ .navbar-default {
+   background-color: #191919;
+   border-color: #fff056;
+ }
+
+ .navbar-default .navbar-brand {
+   color: #e2e2e2;
+   border-right: 2px solid white;
+ }
+
+ .navbar-default .navbar-brand:hover {
+   color: #fff056;
+ }
+
+.navbar-default .navbar-nav > li > a {
+    color: #dacb2c;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #e2e2e2;
+    background-color: transparent;
+}
+
+ .navbar-default .navbar-text {
+   color: #dacb2c;
+ }
