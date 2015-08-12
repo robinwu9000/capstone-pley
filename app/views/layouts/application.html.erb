@@ -8,13 +8,7 @@
 </head>
 <body>
 
-  <% if signed_in? %>
-    Hi, <%= current_user.first_name + " "  + current_user.last_name[0] %>.
-    <%= button_to "Sign Out", session_url, method: :delete %>
-  <% else %>
-    <%= link_to "Log In", new_session_url %>
-    <%= link_to "Sign Up", new_user_url %>
-  <% end %>
+  <%= render template: "layouts/_navigation_bar" %>
 
   <% if flash[:errors] %>
     <%= flash[:errors].join("<br>").html_safe %>
