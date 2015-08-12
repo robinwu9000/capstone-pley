@@ -1,5 +1,5 @@
 # capstone-pley
-aka a Yelp Clone
+[aka a Yelp Clone](https://pley-app.herokuapp.com/)
 
 ## Minimum Viable Product
 The main functionality of Yelp is to search for a business and give reviews:
@@ -7,6 +7,7 @@ The main functionality of Yelp is to search for a business and give reviews:
   + can search for a business
   + can search by location and category
   + view business details and photos
+  + can view users and their reviews
 + with user login:
   + can write a review
   + can add photos
@@ -29,6 +30,7 @@ The main functionality of Yelp is to search for a business and give reviews:
 | name | string | not null |
 | password_digest | string | not null |
 | session_token | string | not null, unique |
+| profile_pic | string | optional |
 
 ### Reviews 
 | column | type | details |
@@ -38,7 +40,6 @@ The main functionality of Yelp is to search for a business and give reviews:
 | business_id | integer | not null, foreign key |
 | rating | integer | not null, between 1-5 |
 | description | text | optional |
-| helpful | integer | used to sort reviews (people can +1/-1) |
 
 ### Business
 | column | type | details |
@@ -51,7 +52,6 @@ The main functionality of Yelp is to search for a business and give reviews:
 | zip_code | integer | not null |
 | phone_number | string (integer?) | optional |
 | website_address | string | optional |
-| overall_rating | integer | either optional or default 0 |
 | price_rating | integer | not null, between 1-5 |
 
 
@@ -70,7 +70,7 @@ The main functionality of Yelp is to search for a business and give reviews:
 | user_id | integer | not null, foreign key |
 | business_id | integer | not null, foreign key |
 | path | string | not null, where to fetch the photo from |
-
+| comment | string | optional |
 
 ## Implementation Timeline
 ### Phase 1: Search and View Business (4~5 days)
