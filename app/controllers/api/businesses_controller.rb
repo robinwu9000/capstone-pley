@@ -29,15 +29,17 @@ class Api::BusinessesController < ApplicationController
     location = params[:location]
 
     unless query || location
-      render json: status:404
+      @businesses = Business.find(:all, order: "updated_at DESC", limit: 10)
     else
       @businesses = Business.filter_businesses(query, location)
-      render json: @businesses
     end
+
+    render json: @businesses
   end
 
   private
   def business_params
-    params.permit(:business).require(:name, :address, :city, :state, :zip_code, :price_range)
+    params.permit(:business).require(:name, :address, :city, :state, :zip_code,
+                                     :price_range, :phone_number, :website_address)
   end
 end
