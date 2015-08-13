@@ -25,12 +25,30 @@ class Api::BusinessesController < ApplicationController
   end
 
   def index
-    query = params[:search][:query]
-    location = params[:search][:location]
+    query = params[:query]
+    location = params[:location]
+
+    @businesses = filter_businesses(query, location)
+
+    render json: @businesses
   end
 
   private
   def business_params
     params.permit(:business).require(:name, :address, :city, :state, :zip_code, :price_range)
+  end
+
+  def filter_businesses(query, location)
+    business_by_location = Business.where("full_address LIKE ?", "%#{location}%")
+    business_with_cats = business_by_location.join(<<-SQL)
+      LEFT OUTER JOIN
+        business_categories as bc
+      ON
+        businesses.id = bc.business_id
+      JOIN
+        categories
+      ON
+        bc.category_id = categories.id
+    SQL
   end
 end
