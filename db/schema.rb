@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150812220334) do
+ActiveRecord::Schema.define(version: 20150813005017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,9 +39,11 @@ ActiveRecord::Schema.define(version: 20150812220334) do
     t.datetime "updated_at",      null: false
     t.string   "longitude"
     t.string   "latitude"
+    t.string   "full_address",    null: false
   end
 
   add_index "businesses", ["address", "city", "state", "zip_code"], name: "index_businesses_on_address_and_city_and_state_and_zip_code", unique: true, using: :btree
+  add_index "businesses", ["full_address"], name: "index_businesses_on_full_address", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "category",   null: false
