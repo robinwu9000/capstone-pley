@@ -1,3 +1,23 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.jumbotron {
+  background-image: url("https://maps.googleapis.com/maps/api/staticmap?center=37.1623028,-122.0372054&zoom=10&size=620x620&scale=2");
+  background-size: cover;
+}
+
+.container {
+  color: #eee;
+  text-shadow: #111 0 0 1px;
+  background-color: rgba(22, 23, 1, 0.83);
+  border: solid #eee 2px;
+  border-radius: 14px;
+}
+
+.container p a {
+  color: #eee;
+  // background-color: rgba(0,0,0,0.5);
+  // border: solid #eee 2px;
+  // border-radius: 14px;
+}

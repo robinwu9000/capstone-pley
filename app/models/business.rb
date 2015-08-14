@@ -16,7 +16,9 @@ class Business < ActiveRecord::Base
   end
 
   def self.filter_businesses(query, location)
+    location.strip!
     location.downcase!
+    query.strip!
 
     business_by_location = Business.where("full_address LIKE ?", "%#{location}%")
     business_with_cats = business_by_location.joins(<<-SQL)

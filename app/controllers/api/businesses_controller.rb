@@ -25,10 +25,10 @@ class Api::BusinessesController < ApplicationController
   end
 
   def index
-    query = params[:query]
-    location = params[:location]
+    query = params[:query] || ""
+    location = params[:location] || ""
 
-    unless query || location
+    if location.empty?
       @businesses = Business.order("updated_at DESC").limit(10)
     else
       @businesses = Business.filter_businesses(query, location)

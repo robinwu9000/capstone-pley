@@ -1,8 +1,23 @@
 //Global Collection: Pley.businesses
 Pley.Routers.AppRouter = Backbone.Router.extend({
   routes: {
-    "" : "businessSearch"
+    "" : "redirect",
+    "businesses" : "businessSearch"
     // "(*stuff)" : "businessSearch"
+  },
+
+  initialize: function() {
+    this.$el = $("#site-content");
+  },
+
+  redirect: function() {
+    // debugger;
+    if(Backbone.history.getPath() === "users/new" ||
+       Backbone.history.getPath() === "session/new") {
+         //do nothing;
+    } else {
+      Backbone.history.navigate("businesses", {trigger: true});
+    }
   },
 
   rootPage: function() {
@@ -10,13 +25,45 @@ Pley.Routers.AppRouter = Backbone.Router.extend({
   },
 
   businessSearch: function() {
+    var view;
+
     var params = this.parseQueryString(Backbone.history.getSearch().slice(1));
-    console.log(params);
-    Pley.businesses.fetch({
-      reset: true,
-      data: {query: params.query, location: params.location}
-    });
+    if($.isEmptyObject(params)) {
+      Pley.businesses.fetch({reset: true});
+      view = new Pley.Views.RootPage({collection: Pley.businesses});
+    } else {
+      Pley.businesses.fetch({
+        reset: true,
+        data: {query: params.query, location: params.location}
+      });
+      view = new Pley.Views.SearchResults({collection: Pley.businesses});
+    }
+    console.log(params); console.log(Pley.businesses);
+    this.swapViews(view);
   },
+
+  swapViews: function(view) {
+    this._currentView && this._currentView.remove();
+    this._currentView = view;
+    this.$el.html(view.render().$el);
+  },
+
+
+  parseQueryString: function (queryString) {
+    var match,
+      pl     = /\+/g,  // Regex for replacing addition symbol with a space
+      search = /([^&=]+)=?([^&]*)/g,
+      decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); };
+      // query  = window.location.search.substring(1);
+
+    var urlParams = {};
+    while (match = search.exec(queryString))
+       urlParams[decode(match[1])] = decode(match[2]);
+
+    return urlParams;
+  }
+});
+
 
   // parseQueryString: function(queryString){
   //   var params = {};
@@ -39,18 +86,3 @@ Pley.Routers.AppRouter = Backbone.Router.extend({
   //   }
   //   return params;
   // }
-
-  parseQueryString: function (queryString) {
-    var match,
-      pl     = /\+/g,  // Regex for replacing addition symbol with a space
-      search = /([^&=]+)=?([^&]*)/g,
-      decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); };
-      // query  = window.location.search.substring(1);
-
-    var urlParams = {};
-    while (match = search.exec(queryString))
-       urlParams[decode(match[1])] = decode(match[2]);
-
-    return urlParams;
-  }
-});
