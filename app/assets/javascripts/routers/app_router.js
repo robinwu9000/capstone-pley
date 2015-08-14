@@ -2,8 +2,13 @@
 Pley.Routers.AppRouter = Backbone.Router.extend({
   routes: {
     "" : "rootPage",
-    "/" : "businessSearch"
+    "(*stuff)" : "businessSearch"
   },
+
+  // execute: function(callback, args, name) {
+  //   args.push(this.parseQueryString(args.pop()));
+  //   if (callback) callback.apply(this, args);
+  // },
 
   rootPage: function() {
     Pley.businesses.fetch({reset: true});
@@ -11,7 +16,8 @@ Pley.Routers.AppRouter = Backbone.Router.extend({
 
   businessSearch: function(queryString) {
     var params = this.parseQueryString(queryString);
-    debugger;
+    // var params = queryString;
+    // alert(params);
     Pley.businesses.fetch({
       reset: true,
       data: {query: params.query, location: params.location}
