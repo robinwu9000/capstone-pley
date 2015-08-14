@@ -29,7 +29,7 @@ class Api::BusinessesController < ApplicationController
     location = params[:location]
 
     unless query || location
-      @businesses = Business.find(:all, order: "updated_at DESC", limit: 10)
+      @businesses = Business.order("updated_at DESC").limit(10)
     else
       @businesses = Business.filter_businesses(query, location)
     end

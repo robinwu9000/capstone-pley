@@ -4,7 +4,7 @@ window.Pley = {
   Views: {},
   Routers: {},
   initialize: function() {
-    Pley.businesses = new Pley.Collection.Businesses();
+    Pley.businesses = new Pley.Collections.Businesses();
     new Pley.Routers.AppRouter();
     Backbone.history.start();
   }
