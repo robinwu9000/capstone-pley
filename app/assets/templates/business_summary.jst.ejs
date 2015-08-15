@@ -1,6 +1,13 @@
 <h3>
   <%= business.escape("name").replace(/\b./g, function(a){ return a.toUpperCase(); }) %>
-  <input type="number" class="rating" min=0 step=0.5 int="<%= business.escape('rating') %>" data-readonly="true">
+  <span>
+    <div class="rating-symbol">
+      <div class="rating-symbol-background"></div>
+      <div class="rating-symbol-foreground">
+      </div>
+    </div>
+  </span>
+  <input type="hidden" class="rating" value="<%= business.escape('rating') %>" disabled="disabled">
 </h3>
 
 <p>
