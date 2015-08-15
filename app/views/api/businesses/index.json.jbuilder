@@ -4,7 +4,9 @@ json.array! @businesses do |b|
 
   total = b.reviews.sum(:rating)
 
-  json.rating (b.reviews.count == 0 ? 0 : total / b.reviews.count)
+  rating = (b.reviews.count == 0 ? 0 : total.to_f / b.reviews.count)
+
+  json.rating ((rating*2).round / 2.0)
 
   json.categories do
     b.categories
