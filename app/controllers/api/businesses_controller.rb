@@ -34,7 +34,7 @@ class Api::BusinessesController < ApplicationController
       @businesses = Business.filter_businesses(query, location)
     end
 
-    render json: @businesses
+    render :index
   end
 
   private
