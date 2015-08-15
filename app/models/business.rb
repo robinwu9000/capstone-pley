@@ -11,6 +11,11 @@ class Business < ActiveRecord::Base
     self.name.downcase!
   end
 
+  has_many :reviews
+  has_many :photos
+  has_many :business_categories
+  has_many :categories, through: :business_categories, source: :category
+
   def concat_address_fields
     self.full_address = "#{self.address} #{self.city} #{self.state} #{self.zip_code}".downcase
   end

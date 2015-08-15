@@ -4,4 +4,6 @@ class Category < ActiveRecord::Base
   before_save do
     self.category.capitalize!
   end
+
+  has_many :business_categories
 end
