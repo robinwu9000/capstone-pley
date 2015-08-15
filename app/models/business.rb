@@ -26,7 +26,7 @@ class Business < ActiveRecord::Base
         business_categories as bc
       ON
         businesses.id = bc.business_id
-      JOIN
+      LEFT OUTER JOIN
         categories
       ON
         bc.category_id = categories.id

@@ -2,7 +2,8 @@
 Pley.Routers.AppRouter = Backbone.Router.extend({
   routes: {
     "" : "redirect",
-    "businesses" : "businessSearch"
+    "businesses" : "businessSearch",
+    "businesses/:id" : "businessShow"
     // "(*stuff)" : "businessSearch"
   },
 
@@ -29,16 +30,15 @@ Pley.Routers.AppRouter = Backbone.Router.extend({
 
     var params = this.parseQueryString(Backbone.history.getSearch().slice(1));
     if($.isEmptyObject(params)) {
-      Pley.businesses.fetch({reset: true});
-      view = new Pley.Views.RootPage({collection: Pley.businesses});
+      Pley.businesses.fetch();
     } else {
       Pley.businesses.fetch({
-        reset: true,
         data: {query: params.query, location: params.location}
       });
-      view = new Pley.Views.SearchResults({collection: Pley.businesses});
     }
-    console.log(params); console.log(Pley.businesses);
+    view = new Pley.Views.RootPage({collection: Pley.businesses});
+    console.log(params); console.log(Pley.businesses); console.log(view);
+
     this.swapViews(view);
   },
 

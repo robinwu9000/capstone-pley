@@ -3,7 +3,7 @@ Pley.Views.RootPage = Backbone.CompositeView.extend({
   template: JST["root_page"],
 
   initialize: function() {
-    // this.listenTo(this.collection, "add", this.addBusinessSummaryView);
+    this.listenTo(this.collection, "add", this.addBusinessSummaryView);
     this.collection.each(this.addBusinessSummaryView.bind(this));
   },
 
@@ -15,7 +15,7 @@ Pley.Views.RootPage = Backbone.CompositeView.extend({
   },
 
   addBusinessSummaryView: function(business) {
-    var subview = new BusinessSummaryView({model: business});
+    var subview = new Pley.Views.BusinessSummary({model: business});
     this.addSubview(".business-list", subview);
   }
 });
