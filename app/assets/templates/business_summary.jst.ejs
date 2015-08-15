@@ -1,14 +1,7 @@
-<h3>
+<h2>
   <%= business.escape("name").replace(/\b./g, function(a){ return a.toUpperCase(); }) %>
-  <span>
-    <div class="rating-symbol">
-      <div class="rating-symbol-background"></div>
-      <div class="rating-symbol-foreground">
-      </div>
-    </div>
-  </span>
-  <input type="hidden" class="rating" value="<%= business.escape('rating') %>" disabled="disabled">
-</h3>
+  <input type="hidden" class="rating" value="<%= business.escape('rating') %>" data-readonly>
+</h2>
 
 <p>
   <%= business.escape("address") %>
@@ -20,3 +13,11 @@
     <span class="glyphicon glyphicon-usd"></span>
   <% } %>
 </p>
+
+<span><%= business.escape("num_reviews") %> Reviews</span>
+
+<script type="text/javascript">
+  $(function() {
+    $(".rating").rating();
+  });
+</script>

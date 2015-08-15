@@ -7,6 +7,7 @@ json.array! @businesses do |b|
   rating = (b.reviews.count == 0 ? 0 : total.to_f / b.reviews.count)
 
   json.rating ((rating*2).round / 2.0)
+  json.num_reviews b.reviews.count
 
   json.categories do
     b.categories
