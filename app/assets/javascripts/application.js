@@ -16,7 +16,6 @@
 //= require underscore
 //= require backbone
 //= require pley
-//= require star-rating.min.js
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
