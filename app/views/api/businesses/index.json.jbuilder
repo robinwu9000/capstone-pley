@@ -9,7 +9,5 @@ json.array! @businesses do |b|
   json.rating ((rating*2).round / 2.0)
   json.num_reviews b.reviews.count
 
-  json.categories do
-    b.categories
-  end
+  json.categories b.categories.pluck(:category)
 end

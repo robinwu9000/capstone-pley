@@ -1,20 +1,27 @@
-<h2>
-  <%= business.escape("name").replace(/\b./g, function(a){ return a.toUpperCase(); }) %>
-  <input type="hidden" class="rating" value="<%= business.escape('rating') %>" data-readonly>
-</h2>
+<div class="summary-details" style="width: 325px; max-width: 50%;">
+  <h2>
+    <%= business.escape("name").replace(/\b./g, function(a){ return a.toUpperCase(); }) %>
+    <input type="hidden" class="rating" value="<%= business.escape('rating') %>" data-readonly>
+  </h2>
 
-<p>
-  <%= business.escape("address") %>
-  <%= business.escape("city") + ", " + business.escape("state") + " " + business.escape("zip_code") %>
-</p>
+  <p>
+    <%= business.escape("address") %>
+    <%= business.escape("city") + ", " + business.escape("state") + " " + business.escape("zip_code") %>
+  </p>
 
-<p>
-  <% for(var i = 0; i < business.get("price_range"); i++) { %>
-    <span class="glyphicon glyphicon-usd"></span>
-  <% } %>
-</p>
+  <p>
+    <% for(var i = 0; i < business.get("price_range"); i++) { %>
+      <span class="glyphicon glyphicon-usd"></span>
+    <% } %>
+  </p>
 
-<span><%= business.escape("num_reviews") %> Reviews</span>
+  <span><%= business.escape("num_reviews") %> Reviews</span>
+
+  <span style="float: right;"><%= business.escape("categories").join(" ") %></span>
+</div>
+
+<div class="summary-photos" style="width: 50%;">
+</div>
 
 <script type="text/javascript">
   $(function() {
