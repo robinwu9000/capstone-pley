@@ -17,14 +17,21 @@
 
   <span><%= business.escape("num_reviews") %> Reviews</span>
 
-  <span style="float: right;"><%= business.escape("categories").join(" ") %></span>
+  <span style="float: right;"><%= business.get("categories").join(", ") %></span>
 </div>
 
-<div class="summary-photos" style="width: 50%;">
+<div class="summary-photos" style="width: 50%; float: right;">
+  <a href="#" class="btn btn-primary" id="cloudinary_widget" data-business-id="<%= business.escape("id") %>">Upload Images</a>
 </div>
 
 <script type="text/javascript">
   $(function() {
     $(".rating").rating();
+
+    $("#cloudinary_widget").cloudinary_upload_widget({
+      CLOUDINARY_OPTIONS
+    }, function(error, result) {
+
+    })
   });
 </script>

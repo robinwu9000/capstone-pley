@@ -10,4 +10,6 @@ json.array! @businesses do |b|
   json.num_reviews b.reviews.count
 
   json.categories b.categories.pluck(:category)
+
+  json.photos b.photos.pluck(:path)
 end
