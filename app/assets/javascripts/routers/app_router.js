@@ -21,10 +21,6 @@ Pley.Routers.AppRouter = Backbone.Router.extend({
     }
   },
 
-  rootPage: function() {
-    Pley.businesses.fetch({reset: true});
-  },
-
   businessSearch: function() {
     var view;
 
@@ -38,6 +34,13 @@ Pley.Routers.AppRouter = Backbone.Router.extend({
     }
     view = new Pley.Views.RootPage({collection: Pley.businesses});
     console.log(params); console.log(Pley.businesses); console.log(view);
+
+    this.swapViews(view);
+  },
+
+  businessShow: function(id) {
+    var business = Pley.businesses.getOrFetch(id);
+    var view = new Pley.Views.BusinessShow({model: business});
 
     this.swapViews(view);
   },
