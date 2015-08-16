@@ -19,7 +19,15 @@ Pley.Models.Business = Backbone.Model.extend({
 
   parse: function(response) {
     if(response.photos) {
-      
+      this.photos().set(response.photos);
+      delete response.photos;
     }
+
+    if(response.reviews) {
+      this.reviews().set(response.reviews);
+      delete response.reviews;
+    }
+    
+    return response;
   }
 });

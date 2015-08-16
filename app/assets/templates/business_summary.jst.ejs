@@ -1,7 +1,7 @@
 <div class="summary-details" style="width: 325px; max-width: 50%;">
   <h2>
     <%= business.escape("name").replace(/\b./g, function(a){ return a.toUpperCase(); }) %>
-    <input type="hidden" class="rating" value="<%= business.escape('rating') %>" data-readonly>
+    <input type="hidden" class="rating" value="<%= business.escape('avg_rating') %>" data-readonly>
   </h2>
 
   <p>
