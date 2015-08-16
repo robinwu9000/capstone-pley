@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :businesses, except: [:new, :edit]
     resources :reviews, only: [:create, :update, :destroy]
     resources :users, only: [:show]
+    resources :photos, only: [:create, :destroy]
   end
 end

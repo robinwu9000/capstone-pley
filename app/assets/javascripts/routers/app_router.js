@@ -2,8 +2,8 @@
 Pley.Routers.AppRouter = Backbone.Router.extend({
   routes: {
     "" : "redirect",
-    "businesses" : "businessSearch",
-    "businesses/:id" : "businessShow"
+    "businesses/:id" : "businessShow",
+    "businesses" : "businessSearch"
     // "(*stuff)" : "businessSearch"
   },
 
