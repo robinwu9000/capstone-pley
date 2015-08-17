@@ -1,6 +1,29 @@
 //jshint sub:true
 Pley.Views.ReviewForm = Backbone.View.extend({
   template: JST["review_form"],
+  tagName: "form",
+  className: "animated slideInRight",
+
+  events: {
+    "submit" : "createReview",
+    "click .cancel-button" : "closeReview"
+  },
+
+  createReview: function(event) {
+    event.preventDefault();
+    var formData = $(event.currentTarget).serializeJSON();
+    var newReview = new Pley.Models.Review(formData.review);
+    newReview.save({}, {
+      success: function() {
+        this.model.reviews().add(newReview);
+      }.bind(this)
+    });
+    this.closeReview();
+  },
+
+  closeReview: function() {
+    this.$el.toggleClass("slideInRight slideOutRight");
+  },
 
   render: function() {
     this.$el.html(this.template({business: this.model}));

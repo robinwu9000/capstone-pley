@@ -3,7 +3,7 @@
 <input type="hidden" class="rating" value="<%= review.escape('rating') %>" data-readonly>
 
 <p>
-  <% if(review.description) { %>
+  <% if(!!review.escape("description")) { %>
     <%= review.escape("description") %>
   <% } else { %>
     This user has yet to add a review.

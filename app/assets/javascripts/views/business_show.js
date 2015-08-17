@@ -29,7 +29,9 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
   },
 
   showReviewForm: function() {
-
+    var formView = new Pley.Views.ReviewForm({model: this.model});
+    // formView.addClass("animated slideInRight");
+    $(".review-form").html(formView.render().$el);
   },
 
   addReviewView: function(review) {
