@@ -17,7 +17,6 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
   render: function() {
     this.$el.html(this.template());
     this.attachSubviews();
-    // debugger;
     this.attachDetailsView();
     return this;
   },
@@ -31,14 +30,16 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
     event.preventDefault();
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS,
       function(error, result) {
-        var photo = new Pley.Models.Photo({business_id: this.model.id,
-          path: result[0].url
-        });
-        photo.save({}, {
-          success: function() {
-            this.photos.add(photo);
-          }.bind(this)
-        });
+        if(!error) {
+          var photo = new Pley.Models.Photo({business_id: this.model.id,
+            path: result[0].url
+          });
+          photo.save({}, {
+            success: function() {
+              this.photos.add(photo);
+            }.bind(this)
+          });
+        }
     }.bind(this));
   }
 });
