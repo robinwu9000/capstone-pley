@@ -3,6 +3,10 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
   template: JST["business_show"],
   className: "testing",
 
+  events: {
+    "click #cloudinary-widget" : "attachUploadWidget"
+  },
+
   initialize: function() {
     this.reviews = this.model.reviews();
     this.photos = this.model.photos();
@@ -13,7 +17,6 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
   render: function() {
     this.$el.html(this.template());
     this.attachSubviews();
-    this.attachUploadWidget();
     // debugger;
     this.attachDetailsView();
     return this;
@@ -24,15 +27,16 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
     this.attachSubview("#details-view", view);
   },
 
-  attachUploadWidget: function() {
-    $("#cloudinary-widget").cloudinary_upload_widget(CLOUDINARY_OPTIONS,
+  attachUploadWidget: function(event) {
+    event.preventDefault();
+    cloudinary.openUploadWidget(CLOUDINARY_OPTIONS,
       function(error, result) {
         var photo = new Pley.Models.Photo({business_id: this.model.id,
           path: result[0].url
         });
         photo.save({}, {
           success: function() {
-            this.model.photos().add(photo);
+            this.photos.add(photo);
           }.bind(this)
         });
     }.bind(this));
