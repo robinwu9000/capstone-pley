@@ -6,6 +6,7 @@ Pley.Views.BusinessSummary = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
+    this.$el.css({"height" : "170px"});
   },
 
   events: {
@@ -13,7 +14,7 @@ Pley.Views.BusinessSummary = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template({business: this.model}));
+    this.$el.html(this.template({business: this.model, photos: this.model.photos()}));
     return this;
   },
 
