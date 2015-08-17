@@ -4,9 +4,14 @@ Pley.Views.ReviewForm = Backbone.View.extend({
   tagName: "form",
   className: "animated slideInRight",
 
+
   events: {
     "submit" : "createReview",
     "click .cancel-button" : "closeReview"
+  },
+
+  initialize: function() {
+    this.$el.css({"background": "white"});
   },
 
   createReview: function(event) {
@@ -23,6 +28,7 @@ Pley.Views.ReviewForm = Backbone.View.extend({
 
   closeReview: function() {
     this.$el.toggleClass("slideInRight slideOutRight");
+    $("body").css({"background" : ""});
   },
 
   render: function() {
