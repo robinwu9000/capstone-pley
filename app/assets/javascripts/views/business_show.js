@@ -1,7 +1,7 @@
 //jshint sub:true
 Pley.Views.BusinessShow = Backbone.CompositeView.extend({
   template: JST["business_show"],
-  className: "testing",
+  className: "business-show",
 
   events: {
     "click #cloudinary-widget" : "attachUploadWidget"
@@ -12,8 +12,12 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
 
     this.reviews = this.model.reviews();
     this.photos = this.model.photos();
+
     this.reviews.each(this.addReviewView.bind(this));
     this.listenTo(this.reviews, "add", this.addReviewView.bind(this));
+
+    this.photos.each(this.addPhotoView.bind(this));
+    this.listenTo(this.photos, "add", this.addPhotoView.bind(this));
   },
 
   render: function() {
@@ -26,6 +30,11 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
   addReviewView: function(review) {
     var subview = new Pley.Views.ReviewDetail({model: review});
     this.addSubview(".reviews-list", subview);
+  },
+
+  addPhotoView: function(photo) {
+    var subview = new Pley.Views.PhotoView({model: photo});
+    this.addSubview(".photos-list", subview);
   },
 
   attachDetailsView: function() {
