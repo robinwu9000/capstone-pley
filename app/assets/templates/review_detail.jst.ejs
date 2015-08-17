@@ -1,0 +1,17 @@
+<h3><%= review.escape("username") %></h3>
+
+<input type="hidden" class="rating" value="<%= review.escape('rating') %>" data-readonly>
+
+<p>
+  <% if(review.description) { %>
+    <%= review.escape("description") %>
+  <% } else { %>
+    This user has yet to add a review.
+  <% } %>
+</p>
+
+<script type="text/javascript">
+  $(function() {
+    $(".rating").rating();
+  });
+</script>

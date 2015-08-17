@@ -8,10 +8,12 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
   },
 
   initialize: function() {
+    this.$el.css({"margin-top" : "10%"});
+
     this.reviews = this.model.reviews();
     this.photos = this.model.photos();
-    this.$el.css({"margin-top" : "10%"});
-    // this.listenTo(this.model, "sync", this.render);
+    this.reviews.each(this.addReviewView.bind(this));
+    this.listenTo(this.reviews, "add", this.addReviewView.bind(this));
   },
 
   render: function() {
@@ -19,6 +21,11 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
     this.attachSubviews();
     this.attachDetailsView();
     return this;
+  },
+
+  addReviewView: function(review) {
+    var subview = new Pley.Views.ReviewDetail({model: review});
+    this.addSubview(".reviews-list", subview);
   },
 
   attachDetailsView: function() {
