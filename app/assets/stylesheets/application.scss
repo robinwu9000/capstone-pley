@@ -19,10 +19,12 @@
 
  body {
    background-color: #f6f6f6;
+   position: relative;
  }
 
  #site-content {
    margin-top: 50px;
+    height: 100vh;
  }
 
  .navbar {

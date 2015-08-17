@@ -10,7 +10,7 @@ Pley.Collections.Businesses = Backbone.Collection.extend({
       this.add(business);
     }
 
-      business.fetch();
-      return business;
+    business.fetch();
+    return business;
   }
 });
