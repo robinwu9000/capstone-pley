@@ -1,0 +1,9 @@
+<input type="hidden" name="review[business_id]" value="<%= business.id %>">
+<input type="hidden" class="rating-input" name="review[rating]">
+<textarea name="review[description]" rows="8" cols="40"></textarea>
+
+<script type="text/javascript">
+  $(function() {
+    $(".rating").rating();
+  });
+</script>

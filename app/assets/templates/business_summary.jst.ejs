@@ -21,6 +21,8 @@
 </div>
 
 <div class="summary-photos" style="width: 50%; height: 100%; float: right;">
+  <div id="centering" style="display: inline-block; height: 100%; vertical-align: middle; width: 10%;"></div>
+
   <% if(photos.at(0)) { %>
     <img src= "<%= photos.at(0).escape("path") %>" class="summary-photo"/>
   <% } %>
@@ -40,5 +42,6 @@
     max-height: 95%;
     max-width: 40%;
     vertical-align: middle;
+    border-radius: 10px;
   }
 </style>

@@ -4,7 +4,8 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
   className: "business-show",
 
   events: {
-    "click #cloudinary-widget" : "attachUploadWidget"
+    "click #cloudinary-widget" : "attachUploadWidget",
+    "click #add-review" : "showReviewForm"
   },
 
   initialize: function() {
@@ -25,6 +26,10 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
     this.attachSubviews();
     this.attachDetailsView();
     return this;
+  },
+
+  showReviewForm: function() {
+
   },
 
   addReviewView: function(review) {
