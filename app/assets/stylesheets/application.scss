@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  *= require bootstrap-rating
- *= require animate.min
+ * require animate.min
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
@@ -21,11 +21,12 @@
  body {
    background-color: #f6f6f6;
    position: relative;
+   overflow-x: hidden;
  }
 
  #site-content {
    margin-top: 50px;
-    height: 100vh;
+   height: 100vh;
  }
 
  .summary-item:hover {
