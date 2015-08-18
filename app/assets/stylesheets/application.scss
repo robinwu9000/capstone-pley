@@ -28,6 +28,10 @@
     height: 100vh;
  }
 
+ .summary-item:hover {
+   border-color: #fff056;
+ }
+
  .navbar {
    margin-bottom: 0px;
  }
@@ -55,6 +59,6 @@
     background-color: transparent;
 }
 
- .navbar-default .navbar-text {
-   color: #dacb2c;
- }
+.navbar-default .navbar-text {
+ color: #dacb2c;
+}
