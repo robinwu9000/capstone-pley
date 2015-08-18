@@ -4,8 +4,9 @@ class Business < ActiveRecord::Base
   validates :price_range, inclusion: 1..5
   validates :state, length: {is: 2}
   validates :zip_code, length: {is: 5}
+  validates :phone_number, length: {is: 12}, allow_nil: true
 
-  before_validation :concat_address_fields
+  before_validation :concat_address_fields, :format_phone_number
 
   before_save do
     self.name.downcase!
@@ -38,5 +39,13 @@ class Business < ActiveRecord::Base
     SQL
 
     business_with_cats.where("name ILIKE ? OR category ILIKE ?", "%#{query}%", query)
+  end
+
+  def format_phone_number
+    if self.phone_number
+      self.phone_number = self.phone_number.gsub(/\D/, '')
+      self.phone_number.insert(3, '-')
+      self.phone_number.insert(-5,'-')
+    end
   end
 end
