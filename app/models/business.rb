@@ -25,7 +25,7 @@ class Business < ActiveRecord::Base
     location.downcase!
     query.strip!
 
-    business_by_location = Business.where("full_address LIKE ?", "%#{location}%")
+    business_by_location = Business.where("full_address ILIKE ?", "%#{location}%")
     business_with_cats = business_by_location.joins(<<-SQL)
       LEFT OUTER JOIN
         business_categories as bc
@@ -37,6 +37,6 @@ class Business < ActiveRecord::Base
         bc.category_id = categories.id
     SQL
 
-    business_with_cats.where("name LIKE ? OR category = ?", "%#{query}%", query)
+    business_with_cats.where("name ILIKE ? OR category ILIKE ?", "%#{query}%", query)
   end
 end

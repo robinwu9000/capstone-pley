@@ -3,7 +3,7 @@ class Api::BusinessesController < ApplicationController
     @business = Business.new(business_params)
 
     if @business.save
-      render json: @business
+      render :show
     else
       flash.now[:errors] = @business.errors.full_messages
       render json: @business.errors.full_messages, status: 422
@@ -13,7 +13,7 @@ class Api::BusinessesController < ApplicationController
   def update
     @business = Business.find(params[:id])
     if @business.update_attributes(business_params)
-      render json: @business
+      render :show
     else
       flash.now[:errors] = @business.errors.full_messages
       render json: @business.errors.full_messages, status: 422

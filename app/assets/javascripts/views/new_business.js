@@ -1,11 +1,22 @@
 //jshint sub:true
 Pley.Views.NewBusiness = Backbone.View.extend({
   template: JST["new_business"],
-  tagName: "form",
-  className: "new-business",
 
   events: {
-    "submit" : "createBusiness"
+    "submit form" : "createBusiness"
+  },
+
+  createBusiness: function(event) {
+    event.preventDefault();
+    var formData = $(event.currentTarget).serializeJSON();
+    Pley.businesses.create(formData.business, {
+      success: function (model) {
+        Backbone.history.navigate("businesses/" + model.id, {trigger:true});
+      },
+      error: function(object, response) {
+          $("#errors").html(response.responseText).fadeIn();
+      }
+    });
   },
 
   render: function() {
