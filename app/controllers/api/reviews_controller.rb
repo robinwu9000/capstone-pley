@@ -4,7 +4,7 @@ class Api::ReviewsController < ApplicationController
     @review.user_id = current_user.id
 
     if @review.save
-      render json: @review
+      render partial: "api/reviews/review", locals: {r: @review}
     else
       render json: @review.errors.full_messages, status: 422
     end
