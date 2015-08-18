@@ -15,7 +15,7 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
     this.photos = this.model.photos();
 
     this.reviews.each(this.addReviewView.bind(this));
-    this.listenTo(this.reviews, "add", this.addReviewView.bind(this));   
+    this.listenTo(this.reviews, "add", this.addReviewView.bind(this));
 
     this.photos.each(this.addPhotoView.bind(this));
     this.listenTo(this.photos, "add", this.addPhotoView.bind(this));
@@ -32,7 +32,7 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
     var formView = new Pley.Views.ReviewForm({model: this.model});
     // formView.addClass("animated slideInRight");
     $(".review-form").html(formView.render().$el);
-    $("body").css({"background" : "rgba(0,0,0,0.6)"});
+    $("body").prepend("<div id='modal-background'></div>");
   },
 
   addReviewView: function(review) {

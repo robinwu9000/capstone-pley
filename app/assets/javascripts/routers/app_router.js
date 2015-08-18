@@ -4,8 +4,8 @@ Pley.Routers.AppRouter = Backbone.Router.extend({
   routes: {
     "" : "redirect",
     "businesses" : "businessSearch",
+    "businesses/new" : "businessNew",
     "businesses/:id" : "businessShow"
-    // "(*stuff)" : "businessSearch"
   },
 
   initialize: function() {
@@ -20,6 +20,11 @@ Pley.Routers.AppRouter = Backbone.Router.extend({
     } else {
       Backbone.history.navigate("businesses", {trigger: true});
     }
+  },
+
+  businessNew: function() {
+    var view = new Pley.Views.NewBusiness();
+    this.swapViews(view);
   },
 
   businessSearch: function() {

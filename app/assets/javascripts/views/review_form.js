@@ -29,7 +29,7 @@ Pley.Views.ReviewForm = Backbone.View.extend({
 
   closeReview: function() {
     this.$el.toggleClass("slideInRight slideOutRight");
-    $("body").css({"background" : ""});
+    $("#modal-background").remove();
   },
 
   render: function() {
