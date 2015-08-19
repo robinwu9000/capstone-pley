@@ -1,3 +1,17 @@
 // Place all the styles related to the api/Photos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.summary-photo {
+  max-height: 95%;
+  max-width: 40%;
+  vertical-align: middle;
+  border-radius: 10px;
+}
+
+.show-image {
+  max-width: 80%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 30px;
+}

@@ -18,9 +18,8 @@ Pley.Views.ReviewForm = Backbone.View.extend({
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON();
     var newReview = new Pley.Models.Review(formData.review);
-    newReview.save({}, {
-      success: function() {
-        this.model.reviews().add(newReview);
+    newReview.save({}, { wait: true,
+      success: function(model) {
         this.model.fetch();
       }.bind(this)
     });

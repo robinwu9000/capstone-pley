@@ -7,7 +7,7 @@
 # Ignore bundler config.
 /.bundle
 
-
+/bower_components
 
 # Ignore all logfiles and tempfiles.
 /log/*

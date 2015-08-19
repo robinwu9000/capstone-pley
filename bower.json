@@ -1,0 +1,16 @@
+{
+  "name": "pley",
+  "version": "0.0.0",
+  "homepage": "https://pley-app.herokuapp.com",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lightbox2": "~2.8.1"
+  }
+}

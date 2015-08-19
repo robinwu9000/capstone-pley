@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  *= require bootstrap-rating
- * require animate.min
+ *= require lightbox
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
