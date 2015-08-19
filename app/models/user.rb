@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   attr_reader :password
   after_initialize :ensure_session_token
+  before_save :get_profile_pic_path
 
   has_many :reviews
   has_many :photos
@@ -31,5 +32,9 @@ class User < ActiveRecord::Base
 
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64
+  end
+
+  def get_profile_pic_path
+    self.profile_pic = "https://robohash.org/" + self.first_name.gsub(/\s+/,'') + self.last_name.gsub(/\s+/,'') + self.email.strip
   end
 end
