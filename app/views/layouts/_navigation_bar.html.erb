@@ -15,9 +15,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="#businesses/new">Add a Business</a></li>
-        <% if signed_in? %>
-          <li><a href="#">My Account</a></li>
-        <% end %>
+        <li style="width: 106px;">
+          <% if signed_in? %>
+            <a href="#">My Account</a>
+          <% end %>
+        </li>
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
