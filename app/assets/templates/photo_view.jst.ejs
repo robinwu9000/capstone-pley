@@ -1,3 +1,5 @@
-<a href="<%= photo.escape('path') %>" data-lightbox="biz-images">
+<a href="<%= photo.escape('path') %>"
+   data-lightbox="biz-images"
+   data-title="Submitted by <%= photo.escape('username') %>">
   <img src="<%= photo.escape('path') %>" class="show-image" />
 </a>
