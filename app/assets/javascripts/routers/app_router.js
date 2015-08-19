@@ -13,10 +13,9 @@ Pley.Routers.AppRouter = Backbone.Router.extend({
   },
 
   redirect: function() {
-    // debugger;
     if(Backbone.history.getPath() === "users/new" ||
        Backbone.history.getPath() === "session/new") {
-         //do nothing;
+         //do nothing
     } else {
       Backbone.history.navigate("businesses", {trigger: true});
     }

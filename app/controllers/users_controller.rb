@@ -10,8 +10,8 @@ class UsersController < ApplicationController
       sign_in(@user)
       redirect_to root_url
     else
-      flash.now[:errors] = @user.errors.full_messages
-      render :new
+      flash[:errors] = @user.errors.full_messages
+      redirect_to new_user_url
     end
   end
 

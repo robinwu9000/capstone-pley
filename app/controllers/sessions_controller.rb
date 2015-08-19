@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
       sign_in(@user)
       redirect_to root_url
     else
-      flash.now[:errors] = ["Not valid login credentials"]
-      render :new
+      flash[:errors] = ["Not valid login credentials"]
+      redirect_to new_session_url
     end
   end
 
