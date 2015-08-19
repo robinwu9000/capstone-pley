@@ -1,14 +1,17 @@
-<h3><%= review.escape("username") %></h3>
+<img class="profile" src="<%= review.get('profile_pic') %>" height="100px" width="100px"/>
+<div class="review-body">
+  <h3><%= review.escape("username") %></h3>
 
-<input type="hidden" class="rating" value="<%= review.escape('rating') %>" data-readonly>
+  <input type="hidden" class="rating" value="<%= review.escape('rating') %>" data-readonly>
 
-<p>
-  <% if(!!review.escape("description")) { %>
-    <%= review.escape("description") %>
-  <% } else { %>
-    This user has yet to add a review.
-  <% } %>
-</p>
+  <p>
+    <% if(!!review.escape("description")) { %>
+      <%= review.escape("description") %>
+    <% } else { %>
+      This user has yet to add a review.
+    <% } %>
+  </p>
+</div>
 
 <script type="text/javascript">
   $(function() {

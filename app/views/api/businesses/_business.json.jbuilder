@@ -25,5 +25,5 @@ json.reviews b.reviews do |r|
   json.username username
   json.rating r.rating
   json.description r.description
-  json.profile_pic = r.user.profile_pic
+  json.profile_pic r.user.profile_pic
 end

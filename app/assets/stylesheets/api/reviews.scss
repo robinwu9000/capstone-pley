@@ -1,3 +1,12 @@
 // Place all the styles related to the api/Reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+img.profile {
+  display: inline-block;
+  vertical-align: inherit;
+}
+
+div.review-body {
+  display: inline-block;
+}
