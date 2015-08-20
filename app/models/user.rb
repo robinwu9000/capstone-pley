@@ -35,6 +35,6 @@ class User < ActiveRecord::Base
   end
 
   def get_profile_pic_path
-    self.profile_pic = "https://robohash.org/" + self.first_name.gsub(/\s+/,'') + self.last_name.gsub(/\s+/,'') + self.email.strip
+    self.profile_pic ||= "https://robohash.org/" + self.first_name.gsub(/\s+/,'') + self.last_name.gsub(/\s+/,'') + self.email.strip
   end
 end

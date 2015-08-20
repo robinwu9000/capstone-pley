@@ -24,10 +24,10 @@
   <div id="centering" style="display: inline-block; height: 100%; vertical-align: middle; width: 10%;"></div>
 
   <% if(photos.at(0)) { %>
-    <img src= "<%= photos.at(0).escape("path") %>" class="summary-photo"/>
+    <img src= "<%= photos.at(0).escape("compressed") %>" class="summary-photo"/>
   <% } %>
   <% if(photos.at(1)) { %>
-    <img src= "<%= photos.at(1).escape("path") %>" class="summary-photo"/>
+    <img src= "<%= photos.at(1).escape("compressed") %>" class="summary-photo"/>
   <% } %>
 </div>
 

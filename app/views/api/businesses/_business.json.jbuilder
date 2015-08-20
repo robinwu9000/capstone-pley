@@ -18,6 +18,7 @@ json.photos b.photos do |photo|
   json.id photo.id
   json.username username
   json.path photo.path
+  json.compressed photo.compressed ? photo.compressed : photo.path
 end
 
 json.reviews b.reviews do |r|
