@@ -3,6 +3,7 @@ class Api::BusinessesController < ApplicationController
     @business = Business.new(business_params)
 
     if @business.save
+      @business.category_ids = params[:categories].map(&:to_i)
       render :show
     else
       flash.now[:errors] = @business.errors.full_messages
@@ -41,6 +42,7 @@ class Api::BusinessesController < ApplicationController
   private
   def business_params
     params.require(:business).permit(:name, :address, :city, :state, :zip_code,
-                                     :price_range, :phone_number, :website_address)
+                                     :price_range, :phone_number,
+                                     :website_address)
   end
 end

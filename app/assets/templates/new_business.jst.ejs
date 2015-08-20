@@ -58,10 +58,10 @@
     <label for="categories">Suggest Categories (up to 3)</label>
     <!-- <input type="text" id="categories" class="form-control" placeholder="Pizza, Chinese, Sushi"> -->
     <select id="categories" class="chosen-select"
-            multiple="multiple" name="business[categories]"
+            multiple name="business[categories][]"
             data-placeholder="Pizza, Chinese, Sushi">
-      <% _(CATEGORIES).each(function(cat){ %>
-        <option value="<%= cat %>"><%= cat %></option>
+      <% _(CATEGORIES).each(function(cat, index){ %>
+        <option value="<%= index + 1 %>"><%= cat %></option>
       <% }) %>
     </select>
   </div>

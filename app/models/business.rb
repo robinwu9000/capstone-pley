@@ -4,7 +4,7 @@ class Business < ActiveRecord::Base
   validates :price_range, inclusion: 1..5
   validates :state, length: {is: 2}
   validates :zip_code, length: {is: 5}
-  validates :phone_number, length: {is: 12}, allow_nil: true
+  validates :phone_number, length: {is: 12}, allow_blank: true
 
   before_validation :concat_address_fields, :format_phone_number
 
@@ -42,7 +42,7 @@ class Business < ActiveRecord::Base
   end
 
   def format_phone_number
-    if self.phone_number
+    unless self.phone_number.empty?
       self.phone_number = self.phone_number.gsub(/\D/, '')
       self.phone_number.insert(3, '-')
       self.phone_number.insert(-5,'-')
