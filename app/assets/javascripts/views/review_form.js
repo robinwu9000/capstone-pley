@@ -2,14 +2,11 @@
 Pley.Views.ReviewForm = Backbone.View.extend({
   template: JST["review_form"],
   className: "animated slideInRight",
+  id:"review-form",
 
   events: {
-    "submit" : "createReview",
+    "submit form" : "createReview",
     "click .cancel-button" : "closeReview"
-  },
-
-  initialize: function() {
-    this.$el.css({"background": "white"});
   },
 
   createReview: function(event) {

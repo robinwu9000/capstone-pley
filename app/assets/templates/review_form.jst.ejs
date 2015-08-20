@@ -1,19 +1,19 @@
-<h2>Add your review</h2>
+<h2 style="text-align:center;">Add your review</h2>
 
-<form>
+<form class="col-xs-12" id="new-review">
   <input type="hidden" name="review[business_id]" value="<%= business.id %>">
 
   <label>
-    <h2>
+    <h3>
     Rating:
     <input type="hidden" class="rating-input" name="review[rating]">
-    </h2>
+  </h3>
   </label>
   <br>
-  <label>
+  <label for="desc">
     <h3>Comments:</h3>
-    <textarea name="review[description]" rows="8" cols="40"></textarea>
   </label>
+  <textarea id="desc" class="form-control" name="review[description]" rows="8"></textarea>
 
   <br>
   <input type="submit" value="Submit" class="btn btn-primary">
