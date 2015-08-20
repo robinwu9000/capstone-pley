@@ -4,9 +4,11 @@
 
 img.profile {
   display: inline-block;
-  vertical-align: inherit;
+  vertical-align: top;
+  border-bottom: 1px solid black;
 }
 
 div.review-body {
   display: inline-block;
+  max-width: 80%;
 }

@@ -1,1 +1,4 @@
 
+<script type="text/javascript">
+  window.CATEGORIES = <%= Category.order(:id).pluck(:category).to_json.html_safe %>;
+</script>

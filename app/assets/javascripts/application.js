@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap-rating
+//= require chosen.jquery.min
 //= require underscore
 //= require backbone
 //= require pley
