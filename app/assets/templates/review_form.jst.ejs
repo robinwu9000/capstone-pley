@@ -1,20 +1,24 @@
-<input type="hidden" name="review[business_id]" value="<%= business.id %>">
+<h2>Add your review</h2>
 
-<label>
-  <h2>
-  Rating:
-  <input type="hidden" class="rating-input" name="review[rating]">
-  </h2>
-</label>
-<br>
-<label>
-  <h3>Comments:</h3>
-  <textarea name="review[description]" rows="8" cols="40"></textarea>
-</label>
+<form>
+  <input type="hidden" name="review[business_id]" value="<%= business.id %>">
 
-<br>
-<input type="submit" value="Submit" class="btn btn-primary">
-<button type="button" class="cancel-button btn btn-default">Cancel</button>
+  <label>
+    <h2>
+    Rating:
+    <input type="hidden" class="rating-input" name="review[rating]">
+    </h2>
+  </label>
+  <br>
+  <label>
+    <h3>Comments:</h3>
+    <textarea name="review[description]" rows="8" cols="40"></textarea>
+  </label>
+
+  <br>
+  <input type="submit" value="Submit" class="btn btn-primary">
+  <button type="button" class="cancel-button btn btn-default">Cancel</button>
+</form>
 
 <script type="text/javascript">
   $(function() {

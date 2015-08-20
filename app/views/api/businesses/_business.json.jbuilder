@@ -1,7 +1,7 @@
 json.extract! b, :id, :name, :address, :city, :state, :zip_code, :price_range
 
-json.phone_number !!b.phone_number ? b.phone_number : "none"
-json.website_address !!b.website_address ? b.website_address : "none"
+json.phone_number (!!b.phone_number && !b.phone_number.empty?) ? b.phone_number : "none"
+json.website_address (!!b.website_address && !b.phone_number.empty?) ? b.website_address : "none"
 
 total = b.reviews.sum(:rating)
 

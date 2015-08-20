@@ -1,9 +1,7 @@
 //jshint sub:true
 Pley.Views.ReviewForm = Backbone.View.extend({
   template: JST["review_form"],
-  tagName: "form",
   className: "animated slideInRight",
-
 
   events: {
     "submit" : "createReview",
