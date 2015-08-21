@@ -19,6 +19,7 @@ Pley.Views.BusinessSummary = Backbone.View.extend({
   },
 
   showBusiness: function() {
+    window.history.replaceState({}, "pley", "/");
     Backbone.history.navigate("businesses/" + this.model.id, {trigger: true});
   }
 

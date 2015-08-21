@@ -14,7 +14,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#businesses/new">Add a Business</a></li>
+        <li><a href="#businesses/new" id="new-biz-button">Add a Business</a></li>
         <li style="width: 106px;">
           <% if signed_in? %>
             <a href="#">My Account</a>
@@ -48,3 +48,11 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<!-- <script type="text/javascript">
+  $(function(){
+    $("#new-biz-button").click(function() {
+      window.history.pushState({}, "pley", "#businesses/new");
+    });
+  })
+</script> -->

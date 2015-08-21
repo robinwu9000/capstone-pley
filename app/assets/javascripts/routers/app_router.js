@@ -22,8 +22,13 @@ Pley.Routers.AppRouter = Backbone.Router.extend({
   },
 
   businessNew: function() {
-    var view = new Pley.Views.NewBusiness();
-    this.swapViews(view);
+    if(Backbone.history.getSearch()){
+      this.businessSearch();
+    } else {
+      var view = new Pley.Views.NewBusiness();
+      this.swapViews(view);
+    }
+    window.history.replaceState({}, "pley", "/#businesses/new");
   },
 
   businessSearch: function() {
@@ -41,13 +46,17 @@ Pley.Routers.AppRouter = Backbone.Router.extend({
     console.log(params); console.log(Pley.businesses); console.log(view);
 
     this.swapViews(view);
+    window.history.replaceState({}, "pley", "/#businesses" + Backbone.history.getSearch());
   },
 
   businessShow: function(id) {
-    var business = Pley.businesses.getOrFetch(id);
-    var view = new Pley.Views.BusinessShow({model: business});
-
-    this.swapViews(view);
+    if(Backbone.history.getSearch()) {
+      this.businessSearch();
+    } else {
+      var business = Pley.businesses.getOrFetch(id);
+      var view = new Pley.Views.BusinessShow({model: business});
+      this.swapViews(view);
+    }
   },
 
   swapViews: function(view) {

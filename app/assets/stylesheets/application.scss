@@ -25,6 +25,18 @@
    overflow-x: hidden;
  }
 
+ .btn-primary {
+   background-color: #191919;
+   color: #dacb2c;
+   border-color: #0d0d0d;
+ }
+
+ .btn-primary:hover {
+   background-color: #dacb2c;
+   color: #191919;
+   border-color: #0d0d0d;
+ }
+
  #site-content {
    margin-top: 50px;
    height: 100vh;
