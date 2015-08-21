@@ -1,23 +1,26 @@
-<div class="row">
-  <h1 class="col-xs-offset-5 col-xs-4">Sign In</h1>
-</div>
+<div style="color: #e6e6e6;">
+  <img src="/images/sign_in.jpg" width="100%" height="100%" style="position:fixed; top: 0; z-index: -20;"/>
+  <div class="row">
+    <h1 class="col-xs-offset-5 col-xs-4">Sign In</h1>
+  </div>
 
-<div class="row">
-  <form class="form-group col-xs-offset-5 col-xs-4" action="/session" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <div class="row">
+    <form class="form-group col-xs-offset-5 col-xs-4" action="/session" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-    <div class="input-group">
-      <label>Email<br>
-        <input class="form-control" name="user[email]" type="text"><br>
-      </label><br>
-    </div>
+      <div class="input-group">
+        <label>Email<br>
+          <input class="form-control" name="user[email]" type="text"><br>
+        </label><br>
+      </div>
 
-    <div class="input-group">
-      <label>Password<br>
-        <input class="form-control" name="user[password]" type="password"><br>
-      </label><br>
-    </div>
+      <div class="input-group">
+        <label>Password<br>
+          <input class="form-control" name="user[password]" type="password"><br>
+        </label><br>
+      </div>
 
-    <input type="submit" value="Submit" class="btn-lg btn-primary"><br>
-  </form>
+      <input type="submit" value="Submit" class="btn-lg btn-primary"><br>
+    </form>
+  </div>
 </div>

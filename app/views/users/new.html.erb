@@ -1,37 +1,40 @@
-<div class="row">
-  <div class="col-xs-offset-5 col-xs-4">
-    <h1>Sign Up</h1>
+<div style="color: #e6e6e6;">
+  <img src="/images/sign_up.jpg" width="100%" height="100%" style="position: fixed; top: 0; z-index: -20;"/>
+  <div class="row">
+    <div class="col-xs-offset-5 col-xs-4">
+      <h1>Sign Up</h1>
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <form class="form-group col-xs-4 col-xs-offset-5" action="<%= users_url %>" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <div class="row">
+    <form class="form-group col-xs-4 col-xs-offset-5" action="<%= users_url %>" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-    <div class="input-group">
-      <label>First Name<br>
-        <input class="form-control" type="text" name="user[first_name]"><br>
-      </label><br>
-    </div>
+      <div class="input-group">
+        <label>First Name<br>
+          <input class="form-control" type="text" name="user[first_name]"><br>
+        </label><br>
+      </div>
 
-    <div class="input-group">
-      <label>Last Name<br>
-        <input class="form-control" type="text" name="user[last_name]"><br>
-      </label><br>
-    </div>
+      <div class="input-group">
+        <label>Last Name<br>
+          <input class="form-control" type="text" name="user[last_name]"><br>
+        </label><br>
+      </div>
 
-    <div class="input-group">
-      <label>Email<br>
-        <input class="form-control" name="user[email]" type="text"><br>
-      </label><br>
-    </div>
+      <div class="input-group">
+        <label>Email<br>
+          <input class="form-control" name="user[email]" type="text"><br>
+        </label><br>
+      </div>
 
-    <div class="input-group">
-      <label>Password<br>
-        <input class="form-control" name="user[password]" type="password"><br>
-      </label><br>
-    </div>
+      <div class="input-group">
+        <label>Password<br>
+          <input class="form-control" name="user[password]" type="password"><br>
+        </label><br>
+      </div>
 
-    <input type="submit" value="Submit" class="btn-lg btn-primary"><br>
-  </form>
+      <input type="submit" value="Submit" class="btn-lg btn-primary"><br>
+    </form>
+  </div>
 </div>
