@@ -22,13 +22,13 @@ Pley.Routers.AppRouter = Backbone.Router.extend({
   },
 
   businessNew: function() {
-    if(Backbone.history.getSearch()){
-      this.businessSearch();
-    } else {
+    // if(Backbone.history.getSearch()){
+    //   this.businessSearch();
+    // } else {
       var view = new Pley.Views.NewBusiness();
       this.swapViews(view);
-    }
-    window.history.replaceState({}, "pley", "/#businesses/new");
+    // }
+    // window.history.replaceState({}, "pley", "/#businesses/new");
   },
 
   businessSearch: function() {
@@ -43,20 +43,20 @@ Pley.Routers.AppRouter = Backbone.Router.extend({
       });
     }
     var view = new Pley.Views.RootPage({collection: Pley.businesses});
-    console.log(params); console.log(Pley.businesses); console.log(view);
+    // console.log(params); console.log(Pley.businesses); console.log(view);
 
     this.swapViews(view);
-    window.history.replaceState({}, "pley", "/#businesses" + Backbone.history.getSearch());
+    // window.history.replaceState({}, "pley", "/#businesses" + Backbone.history.getSearch());
   },
 
   businessShow: function(id) {
-    if(Backbone.history.getSearch()) {
-      this.businessSearch();
-    } else {
+    // if(Backbone.history.getSearch()) {
+    //   this.businessSearch();
+    // } else {
       var business = Pley.businesses.getOrFetch(id);
       var view = new Pley.Views.BusinessShow({model: business});
       this.swapViews(view);
-    }
+    // }
   },
 
   swapViews: function(view) {

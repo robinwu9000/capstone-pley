@@ -21,7 +21,7 @@
           <% end %>
         </li>
       </ul>
-      <form class="navbar-form navbar-left" role="search">
+      <form id="biz-search" class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <input type="text" name="query" class="form-control" placeholder="Business/Category">
         </div>
@@ -49,10 +49,13 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
   $(function(){
-    $("#new-biz-button").click(function() {
-      window.history.pushState({}, "pley", "#businesses/new");
+    $("#biz-search").submit(function(event) {
+      event.preventDefault();
+      var formData = $(event.currentTarget).serializeJSON();
+      window.history.replaceState({}, "pley", "/?query=" + formData.query + "&location=" + formData.location);
+      Backbone.history.navigate("", {trigger: true});
     });
   })
-</script> -->
+</script>
