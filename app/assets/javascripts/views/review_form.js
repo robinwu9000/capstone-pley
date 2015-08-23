@@ -16,9 +16,12 @@ Pley.Views.ReviewForm = Backbone.View.extend({
     newReview.save({}, { wait: true,
       success: function(model) {
         this.model.fetch();
-      }.bind(this)
+        this.closeReview();
+      }.bind(this),
+      error: function(object, response) {
+        $("#errors").html(response.responseText).fadeIn();
+      }
     });
-    this.closeReview();
   },
 
   closeReview: function() {
