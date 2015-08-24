@@ -1,4 +1,16 @@
 class Api::ReviewsController < ApplicationController
+  def index
+    biz_id = params[:biz_id]
+    user_id = params[:user_id]
+    if(biz_id)
+      @reviews = Review.where(business_id: biz_id).page(params[:page])
+    else
+      @reviews = Review.where(user_id: user_id).page(params[:page])
+    end
+
+    render :index
+  end
+
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
