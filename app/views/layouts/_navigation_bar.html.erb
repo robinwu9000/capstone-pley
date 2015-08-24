@@ -15,11 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="#businesses/new" id="new-biz-button">Add a Business</a></li>
-        <li style="width: 106px;">
-          <% if signed_in? %>
-            <a href="#">My Account</a>
-          <% end %>
-        </li>
+        <li style="width: 106px;"></li>
       </ul>
       <form id="biz-search" class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -31,7 +27,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
         <% if signed_in? %>
-          <div class="navbar-right">
+          <div class="navbar-right" id="logged-in">
             <%= button_to session_url, method: :delete, form_class: "navbar-right", class: "btn btn-default navbar-btn logout-button" do %>
                 Sign Out
             <% end %>
