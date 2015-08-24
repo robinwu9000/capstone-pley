@@ -7,7 +7,6 @@ The main functionality of Yelp is to search for a business and give reviews:
   + can search for a business
   + can search by location and category
   + view business details and photos
-  + can view users and their reviews
 + with user login:
   + can write a review
   + can add photos
@@ -86,8 +85,10 @@ The Bootstrapping and CSS will be implemented in this time.
 
 
 ## Bonus
++ can view users and their reviews
 + can edit/suggest changes to business details
 + have business owner accounts
++ integrate Google maps
 + can filter based by distance from current location
 + add more details to a business
   + subsequently be able to filter by these details
