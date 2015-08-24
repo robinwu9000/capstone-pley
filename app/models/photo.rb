@@ -6,6 +6,8 @@ class Photo < ActiveRecord::Base
 
   before_save :add_compressed
 
+  paginates_per 4
+
   def add_compressed
     self.compressed = self.path.gsub("/upload/", "/upload/q_jpegmini/")
   end

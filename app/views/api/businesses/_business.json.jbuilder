@@ -14,18 +14,18 @@ cats = b.categories.pluck(:category)
 json.categories cats.empty? ? ["(pending)"] : cats
 
 json.photos b.photos do |photo|
-  username = photo.user.first_name + " "  + photo.user.last_name[0]
-  json.id photo.id
-  json.username username
+  # username = photo.user.first_name + " "  + photo.user.last_name[0]
+  # json.id photo.id
+  # json.username username
   json.path photo.path
   json.compressed photo.compressed ? photo.compressed : photo.path
 end
 
-json.reviews b.reviews do |r|
-  username = r.user.first_name + " "  + r.user.last_name[0]
-  json.id r.id
-  json.username username
-  json.rating r.rating
-  json.description r.description
-  json.profile_pic r.user.profile_pic
-end
+# json.reviews b.reviews do |r|
+#   username = r.user.first_name + " "  + r.user.last_name[0]
+#   json.id r.id
+#   json.username username
+#   json.rating r.rating
+#   json.description r.description
+#   json.profile_pic r.user.profile_pic
+# end

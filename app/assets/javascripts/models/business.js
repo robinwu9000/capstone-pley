@@ -9,13 +9,13 @@ Pley.Models.Business = Backbone.Model.extend({
     return this._photos;
   },
 
-  reviews: function() {
-    if(!this._reviews) {
-      this._reviews = new Pley.Collections.Reviews();
-    }
-
-    return this._reviews;
-  },
+  // reviews: function() {
+  //   if(!this._reviews) {
+  //     this._reviews = new Pley.Collections.Reviews();
+  //   }
+  //
+  //   return this._reviews;
+  // },
 
   parse: function(response) {
     if(response.photos) {
@@ -23,11 +23,11 @@ Pley.Models.Business = Backbone.Model.extend({
       delete response.photos;
     }
 
-    if(response.reviews) {
-      this.reviews().set(response.reviews);
-      delete response.reviews;
-    }
-    
+    // if(response.reviews) {
+    //   this.reviews().set(response.reviews);
+    //   delete response.reviews;
+    // }
+
     return response;
   }
 });

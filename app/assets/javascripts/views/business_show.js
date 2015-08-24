@@ -16,7 +16,7 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
     this.reviews.fetch({remove: false, data: {biz_id: this.model.id, page: this.page_num}});
 
     this.photos = new Pley.Collections.Photos();
-    this.photos.fetch({remove: false, data: {biz_id: this.model.id, page: this.page_num}});
+    this.photos.fetch({remove: false, data: {biz_id: this.model.id, page: this.page_num - 1}});
 
     this.reviews.each(this.addReviewView.bind(this));
     this.listenTo(this.reviews, "add", this.addReviewView.bind(this));
@@ -30,7 +30,7 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
       window.setTimeout(function() {
         this.page_num++;
         this.reviews.fetch({remove: false, data: {biz_id: this.model.id, page: this.page_num}});
-        this.photos.fetch({remove: false, data: {biz_id: this.model.id, page: this.page_num}});
+        this.photos.fetch({remove: false, data: {biz_id: this.model.id, page: this.page_num - 1}});
       }.bind(this), 450);
    }
   },
