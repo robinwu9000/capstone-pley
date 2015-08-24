@@ -3,3 +3,4 @@ json.id r.id
 json.username username
 json.rating r.rating
 json.description r.description
+json.profile_pic r.user.profile_pic

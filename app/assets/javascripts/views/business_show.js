@@ -10,9 +10,13 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.$el.css({"margin-top" : "10%"});
+    this.page_num = 1;
 
-    this.reviews = this.model.reviews();
-    this.photos = this.model.photos();
+    this.reviews = new Pley.Collections.Reviews();
+    this.reviews.fetch({remove: false, data: {biz_id: this.model.id, page: this.page_num}});
+
+    this.photos = new Pley.Collections.Photos();
+    this.photos.fetch({remove: false, data: {biz_id: this.model.id, page: this.page_num}});
 
     this.reviews.each(this.addReviewView.bind(this));
     this.listenTo(this.reviews, "add", this.addReviewView.bind(this));
@@ -21,10 +25,27 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
     this.listenTo(this.photos, "add", this.addPhotoView.bind(this));
   },
 
+  nextPage: function(event) {
+    if($(window).scrollTop() + $(window).height() == $(document).height()) {
+      window.setTimeout(function() {
+        this.page_num++;
+        this.reviews.fetch({remove: false, data: {biz_id: this.model.id, page: this.page_num}});
+        this.photos.fetch({remove: false, data: {biz_id: this.model.id, page: this.page_num}});
+      }.bind(this), 450);
+   }
+  },
+
+  listenForScroll: function () {
+   $(window).off("scroll"); // remove previous listeners
+   var throttledCallback = _.throttle(this.nextPage.bind(this), 1100);
+   $(window).on("scroll", throttledCallback);
+ },
+
   render: function() {
     this.$el.html(this.template());
     this.attachSubviews();
     this.attachDetailsView();
+    this.listenForScroll();
     return this;
   },
 
