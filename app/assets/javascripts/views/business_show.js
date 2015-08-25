@@ -50,7 +50,7 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
   },
 
   showReviewForm: function() {
-    var formView = new Pley.Views.ReviewForm({model: this.model});
+    var formView = new Pley.Views.ReviewForm({model: this.model, collection: this.reviews});
     // formView.addClass("animated slideInRight");
     $(".review-location").html(formView.render().$el);
     $("body").prepend("<div id='modal-background'></div>");
