@@ -48,6 +48,7 @@ Pley.Routers.AppRouter = Backbone.Router.extend({
   swapViews: function(view) {
     this._currentView && this._currentView.remove();
     this._currentView = view;
+    $(".footer").empty();
     $(document).scrollTop(0);
     this.$el.html(view.render().$el);
   },

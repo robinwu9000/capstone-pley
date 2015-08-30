@@ -11,6 +11,7 @@ Pley.Views.RootPage = Backbone.CompositeView.extend({
   render: function() {
     var content = this.template();
     this.$el.html(content);
+    $(".footer").html("<a href='#businesses/new'><h2 style='text-align: center;'>Don't See What You're Looking For? Go Add It!</h2></a>");
     this.attachSubviews();
     return this;
   },
