@@ -31,13 +31,13 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
         this.page_num++;
         this.reviews.fetch({remove: false, data: {biz_id: this.model.id, page: this.page_num}});
         this.photos.fetch({remove: false, data: {biz_id: this.model.id, page: this.page_num - 1}});
-      }.bind(this), 450);
+      }.bind(this), 300);
    }
   },
 
   listenForScroll: function () {
    $(window).off("scroll"); // remove previous listeners
-   var throttledCallback = _.throttle(this.nextPage.bind(this), 1100);
+   var throttledCallback = _.throttle(this.nextPage.bind(this), 750);
    $(window).on("scroll", throttledCallback);
  },
 
