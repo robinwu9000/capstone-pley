@@ -14,7 +14,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#businesses/new" id="new-biz-button">Add a Business</a></li>
+        <% if signed_in? %>
+          <li><a href="#businesses/new" id="new-biz-button">Add a Business</a></li>
+        <% else %>
+          <li><%= link_to "Add a Business", new_session_url %></li>
+        <% end %>
         <li style="width: 106px;"><a href="https://github.com/robinwu9000/capstone-pley">Github</a></li>
       </ul>
       <form id="biz-search" class="navbar-form navbar-left" role="search">
