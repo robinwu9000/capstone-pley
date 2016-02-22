@@ -23,6 +23,8 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
 
     this.photos.each(this.addPhotoView.bind(this));
     this.listenTo(this.photos, "add", this.addPhotoView.bind(this));
+
+    this.listenTo(this.model, "sync", this.addMap);
   },
 
   nextPage: function(event) {
@@ -47,6 +49,27 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
     this.attachDetailsView();
     this.listenForScroll();
     return this;
+  },
+
+  addMap: function() {
+    var attr = this.model.attributes;
+    var address = attr.address + " " + attr.state + " " + attr.zip_code;
+    var url = "https://maps.googleapis.com/maps/api/js";
+    $.ajaxSetup({cache: true});
+    $.getScript(url, function() {
+      console.log("script get successful");
+      var geocoder = new google.maps.Geocoder();
+      var options = {zoom: 16};
+      geocoder.geocode({"address" : address}, function(results, status) {
+        options.center = results[0].geometry.location;
+        var newmap = new google.maps.Map($("#map")[0], options);
+        var marker = new google.maps.Marker({
+          map: newmap,
+          position: options.center
+        });
+      });
+      $.ajaxSetup({cache: false});
+    });
   },
 
   showReviewForm: function() {
