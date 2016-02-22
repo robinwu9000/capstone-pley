@@ -1,13 +1,13 @@
 <div class="row">
   <div class="col-md-7 col-md-offset-1" id="details-view">
   </div>
-  <div class="col-md-3" style="text-align: center;">
+  <div class="col-md-3" id="biz-buttons" style="text-align: center;">
       <br> <br>
       <button type="button" id="cloudinary-widget" class="btn btn-primary">Upload Images</button>
       <br> <br>
       <button type="button" id="add-review" class="btn btn-primary">Add a Review</button>
     <div id="login-required" style="display:none;">
-      <p>Please Log In First to Review and Upload Pictures</p>
+      <p style="margin-top:15%;">Please Log In First to Review and Upload Pictures</p>
     </div>
   </div>
 </div>
@@ -37,17 +37,22 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: #F6F6F6;
+    background: #dfdfdf;
     text-align: center;
     font-size: 26px;
     z-index: 10;
+    opacity: 0.97;
   }
 </style>
 
 <script type="text/javascript">
   $(function() {
     if($(".logout-button").length < 1) {
-      $("#login-required").css({display: "block"});
+      $("#biz-buttons").hover(function() {
+        $("#login-required").css({display: "block"});
+      }, function() {
+        $("#login-required").css({display: "none"});
+      });
     }
   });
 </script>

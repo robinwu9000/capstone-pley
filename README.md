@@ -11,7 +11,7 @@ The main functionality of Yelp is to search for a business and give reviews:
   + can write a review
   + can add photos
   + can add a business
-  
+
 ## Wireframes
 #### Home/Landing page: https://wireframe.cc/6nX79G
 #### Signup and Login pages: https://wireframe.cc/BKwAfu
@@ -31,7 +31,7 @@ The main functionality of Yelp is to search for a business and give reviews:
 | session_token | string | not null, unique |
 | profile_pic | string | optional |
 
-### Reviews 
+### Reviews
 | column | type | details |
 | --- | --- | --- |
 | id | integer | not null, primary key |

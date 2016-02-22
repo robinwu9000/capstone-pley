@@ -6,6 +6,7 @@ Pley.Views.RootPage = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "add", this.addBusinessSummaryView);
     this.collection.each(this.addBusinessSummaryView.bind(this));
     this.listenTo(this.collection, "remove", this.removeBusinessSummaryView);
+    this.listenTo(this.collection, "sync", this.checkSearchResult);
   },
 
   render: function() {
@@ -23,5 +24,11 @@ Pley.Views.RootPage = Backbone.CompositeView.extend({
   addBusinessSummaryView: function(business) {
     var subview = new Pley.Views.BusinessSummary({model: business});
     this.addSubview(".business-list", subview);
+  },
+
+  checkSearchResult: function() {
+    if (this.collection.length === 0) {
+      this.$(".business-list").html("<h3 style='text-align: center;'>Sorry, your search did not return any results.</h3>");
+    }
   }
 });
