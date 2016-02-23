@@ -39,7 +39,7 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
 
   listenForScroll: function () {
    $(window).off("scroll"); // remove previous listeners
-   var throttledCallback = _.throttle(this.nextPage.bind(this), 750);
+   var throttledCallback = _.throttle(this.nextPage.bind(this), 450);
    $(window).on("scroll", throttledCallback);
  },
 
