@@ -28,7 +28,7 @@ Pley.Views.RootPage = Backbone.CompositeView.extend({
 
   checkSearchResult: function() {
     if (this.collection.length === 0) {
-      this.$(".business-list").html("<h3 style='text-align: center;'>Sorry, your search did not return any results.</h3>");
+      this.$(".business-list").html("<h1 style='text-align: center; color: red;'>Sorry, your search did not return any results.</h1>");
     }
   }
 });
