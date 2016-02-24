@@ -1,4 +1,4 @@
-<div class="summary-details" style="min-width: 50%; max-width: 50%; float: left; padding-left: 10px;">
+<div class="summary-details" style="min-width: 50%; max-width: 50%; float: left; padding-left: 10px; max-height:190px;">
   <h3>
     <%= business.escape("name").replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) %>
   </h3>
@@ -22,7 +22,7 @@
   <span style="float: right;"><%= business.get("categories").join(", ") %></span>
 </div>
 
-<div class="summary-photos" style="max-width: 50%; height: 100%; float: right;">
+<div class="summary-photos" style="max-width: 50%; width:50%; height: 100%; float: right;">
   <div id="centering" style="display: inline-block; height: 100%; vertical-align: middle; width: 10%;"></div>
 
   <% if(photos.at(0)) { %>
