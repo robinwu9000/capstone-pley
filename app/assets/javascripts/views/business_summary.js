@@ -1,7 +1,7 @@
 //jshint sub:true
 Pley.Views.BusinessSummary = Backbone.View.extend({
   template: JST["business_summary"],
-  className: "summary-item col-md-10 col-md-offset-1",
+  className: "summary-item",
   tagName: "div",
 
   initialize: function() {

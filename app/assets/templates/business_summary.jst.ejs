@@ -1,8 +1,10 @@
-<div class="summary-details" style="min-width: 325px; max-width: 50%; float: left;">
-  <h2>
+<div class="summary-details" style="min-width: 50%; max-width: 50%; float: left; padding-left: 10px;">
+  <h3>
     <%= business.escape("name").replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) %>
+  </h3>
+  <h4>
     <input type="hidden" class="rating" value="<%= business.escape('avg_rating') %>" data-readonly>
-  </h2>
+  </h4>
 
   <p>
     <%= business.escape("address") %>
