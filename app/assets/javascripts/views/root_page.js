@@ -7,14 +7,16 @@ Pley.Views.RootPage = Backbone.CompositeView.extend({
     this.collection.each(this.addBusinessSummaryView.bind(this));
     this.listenTo(this.collection, "remove", this.removeBusinessSummaryView);
     this.listenTo(this.collection, "sync", this.checkSearchResult);
+
+    this.markers = [];
   },
 
   render: function() {
     var content = this.template();
     this.$el.html(content);
     $(".footer").html("<a href='#businesses/new'><h2 style='text-align: center;'>Don't See What You're Looking For? Go Add It!</h2></a>");
-    this.listenForScroll();
     this.attachSubviews();
+    this.listenForScroll();
     return this;
   },
 
@@ -52,24 +54,42 @@ Pley.Views.RootPage = Backbone.CompositeView.extend({
       };
 
       var newmap = new google.maps.Map($("#map")[0], options);
+      var markers = this.markers;
 
       var geocoder = new google.maps.Geocoder();
       this.collection.each(function(place) {
         var attr = place.attributes;
         var address = attr.address + " " + attr.state + " " + attr.zip_code;
         geocoder.geocode({"address" : address}, function(results, status) {
-          var newCenter = results[0].geometry.location || options.center;
-          newmap.setCenter(newCenter);
-          var marker = new google.maps.Marker({
-            map: newmap,
-            position: results[0].geometry.location
-          });
-
-          google.maps.event.addDomListener(document.getElementById("biz-" + place.id),
-            "hover",
-            function() {
-              marker.setAnimation(google.maps.Animation.BOUNCE);
+          if(status === google.maps.GeocoderStatus.OK) {
+            var newCenter = results[0].geometry.location;
+            newmap.setCenter(newCenter);
+            var marker = new google.maps.Marker({
+              map: newmap,
+              position: results[0].geometry.location
             });
+
+            var bizName = attr.name.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+
+            var infowindow = new google.maps.InfoWindow({content: bizName});
+            marker.addListener("click", function() {
+              infowindow.open(newmap, marker);
+            });
+
+            markers[place.id] = marker;
+
+          } else {
+            console.log("Geocode error: " + status);
+          }
+
+        });
+
+        google.maps.event.addDomListener(document.getElementById("biz-" + place.id), "mouseenter", function() {
+          markers[place.id].setAnimation(google.maps.Animation.BOUNCE);
+        });
+
+        google.maps.event.addDomListener(document.getElementById("biz-" + place.id), "mouseleave", function() {
+          markers[place.id].setAnimation(null);
         });
       });
     }
