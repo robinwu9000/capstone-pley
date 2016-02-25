@@ -1,4 +1,4 @@
-# capstone-pley
+# pleY
 [A Restaurant Search and Review app](https://pley-app.herokuapp.com/)
 
 ## Minimum Viable Product
