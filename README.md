@@ -1,5 +1,5 @@
 # capstone-pley
-[aka a Yelp Clone](https://pley-app.herokuapp.com/)
+[A Restaurant Search and Review app](https://pley-app.herokuapp.com/)
 
 ## Minimum Viable Product
 The main functionality of Yelp is to search for a business and give reviews:
