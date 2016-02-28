@@ -23,14 +23,14 @@
 </div>
 
 <div class="summary-photos" style="max-width: 50%; width:50%; height: 100%; float: right;">
-  <div id="centering" style="display: inline-block; height: 100%; vertical-align: middle; width: 10%;"></div>
+  <div id="centering" style="display: inline-block; height: 100%; vertical-align: middle; width: 25%;"></div>
 
   <% if(photos.at(0)) { %>
-    <img src= "<%= photos.at(0).escape("compressed") %>" class="summary-photo"/>
+    <img src="<%= photos.at(0).escape("compressed") %>" class="summary-photo"/>
   <% } %>
-  <% if(photos.at(1)) { %>
-    <img src= "<%= photos.at(1).escape("compressed") %>" class="summary-photo"/>
-  <% } %>
+  <!-- <% if(photos.at(1)) { %>
+    <img src="<%= photos.at(1).escape("compressed") %>" class="summary-photo"/>
+  <% } %> -->
 </div>
 
 <script type="text/javascript">
