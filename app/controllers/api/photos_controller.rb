@@ -3,7 +3,7 @@ class Api::PhotosController < ApplicationController
     biz_id = params[:biz_id]
     user_id = params[:user_id]
     if(biz_id)
-      @photos = Photo.where(business_id: biz_id).page(params[:page]).order("created_at DESC")
+      @photos = Photo.where(business_id: biz_id).page(params[:page])
     else
       @photos = Photo.where(user_id: user_id).page(params[:page])
     end
