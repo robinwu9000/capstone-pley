@@ -12,7 +12,7 @@
       <button type="button" id="add-review" class="btn btn-primary">Add a Review</button>
     <div id="login-required" style="display:none;">
       <p style="margin-top:15%;">
-      <a href="/session/new">Please Log In First to Review and Upload Pictures</a>  
+      <a href="/session/new">Please Log In First to Review and Upload Pictures</a>
       </p>
     </div>
   </div>
@@ -64,6 +64,9 @@
       }, function() {
         $("#login-required").css({display: "none"});
       });
+
+      $("#cloudinary-widget").attr("tabindex", -1);
+      $("#add-review").attr("tabindex", -1);
     }
   });
 </script>
