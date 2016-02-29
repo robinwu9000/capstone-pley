@@ -90,6 +90,10 @@ Pley.Views.BusinessShow = Backbone.CompositeView.extend({
 
   attachUploadWidget: function(event) {
     event.preventDefault();
+    $("#cloudinary-widget").attr("disabled", "disabled");
+    setTimeout(function() {
+      $("#cloudinary-widget").removeAttr("disabled");
+    },1000);
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS,
       function(error, result) {
         if(!error) {
