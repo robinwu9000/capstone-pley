@@ -13,7 +13,7 @@ class Business < ActiveRecord::Base
   end
 
   has_many :reviews
-  has_many :photos, :order => "created_at DESC"
+  has_many :photos, -> {order "created_at DESC"}
   has_many :business_categories
   has_many :categories, through: :business_categories, source: :category
 
